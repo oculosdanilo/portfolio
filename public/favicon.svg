@@ -1,0 +1,21 @@
+<svg width="612" height="612" viewBox="0 0 612 612" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .pathOut {
+      fill: #7F60BE;
+    }
+    .pathIn {
+      fill: #E9E7EF;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .pathOut {
+        fill: #63469C;
+      }
+      .pathIn {
+        fill: #120D1C;
+      }
+    }
+  </style>
+  <ellipse class="pathOut" cx="306" cy="306" rx="306" ry="306" transform="rotate(90 306 306)"/>
+  <ellipse class="pathIn" cx="306" cy="306" rx="202.834" ry="202.834" transform="rotate(90 306 306)"/>
+</svg>
