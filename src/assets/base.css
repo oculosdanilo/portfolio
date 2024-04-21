@@ -1,52 +1,54 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* design <https://www.figma.com/file/eAGQEkY2x5nGNVk5e7uXon/portfolio> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  --od-c-raisin-black: #120D1C;
+  --od-c-raisin-black-rgb: 18, 13, 28;
+  --od-c-magnolia: #E9E7EF;
+  --od-c-magnolia-rgb: 233, 231, 239;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --od-c-ultra-violet: #63469C;
+  --od-c-ultra-violet-rgb: 99, 70, 156;
+  --od-c-slate-blue: #7F60BE;
+  --od-c-slate-blue-rgb: 127, 96, 190;
 
-  --vt-c-indigo: #2c3e50;
+  --od-c-french-gray: #BDB9C7;
+  --od-c-french-gray-rgb: 189, 185, 199;
+  --od-c-chinese-violet: #68617A;
+  --od-c-chinese-violet-rgb: 104, 97, 122;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --od-c-alt1: #46549C;
+  --od-c-alt1-rgb: 70, 84, 156;
+  --od-c-alt2: #7F9C46;
+  --od-c-alt2-rgb: 127, 156, 70;
 }
 
-/* semantic color variables for this project */
+/* variaveis de cores para o projeto */
 :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  --od-body-bg: var(--od-c-magnolia);
+  --od-nav-bg: var(--od-c-french-gray);
+  --od-border: transparent;
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+  --od-primaria: var(--od-c-slate-blue);
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+  --od-body-color: var(--od-c-raisin-black);
+  --od-body-color-sec: var(--od-c-chinese-violet);
 
-  --section-gap: 160px;
+  --armacao: var(--od-c-slate-blue);
+  --lente: var(--od-c-raisin-black);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
+    --od-body-bg: var(--od-c-raisin-black);
+    --od-nav-bg: var(--od-c-raisin-black);
+    --od-border: var(--od-c-chinese-violet);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
+    --od-primaria: var(--od-c-ultra-violet);
 
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
+    --od-body-color: var(--od-c-magnolia);
+    --od-body-color-sec: var(--od-c-french-gray);
+
+    --armacao: var(--od-c-magnolia);
+    --lente: var(--od-c-ultra-violet);
   }
 }
 
@@ -59,28 +61,19 @@
 }
 
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
-  line-height: 1.6;
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  color-scheme: dark;
+
+  height: 100vh;
+  width: 100vw;
+  color: var(--od-body-color);
+  background: var(--od-body-bg);
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 }
