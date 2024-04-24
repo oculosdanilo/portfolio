@@ -1,5 +1,9 @@
 @import './base.css';
 
+body {
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;

@@ -19,10 +19,12 @@
   --od-c-alt1-rgb: 70, 84, 156;
   --od-c-alt2: #7F9C46;
   --od-c-alt2-rgb: 127, 156, 70;
+
+  --ease: cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 /* variaveis de cores para o projeto */
-:root {
+:root.light {
   --od-body-bg: var(--od-c-magnolia);
   --od-nav-bg: var(--od-c-french-gray);
   --od-border: transparent;
@@ -42,33 +44,29 @@
 
   --od-body-color-rgb: var(--od-c-raisin-black-rgb);
   --od-body-color-sec-rgb: var(--od-c-chinese-violet-rgb);
-
-  --ease: cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --od-body-bg: var(--od-c-raisin-black);
-    --od-nav-bg: var(--od-c-raisin-black);
-    --od-border: var(--od-c-chinese-violet);
+:root.dark {
+  --od-body-bg: var(--od-c-raisin-black);
+  --od-nav-bg: var(--od-c-raisin-black);
+  --od-border: var(--od-c-chinese-violet);
 
-    --od-primaria: var(--od-c-ultra-violet);
+  --od-primaria: var(--od-c-ultra-violet);
 
-    --od-body-color: var(--od-c-magnolia);
-    --od-body-color-sec: var(--od-c-french-gray);
+  --od-body-color: var(--od-c-magnolia);
+  --od-body-color-sec: var(--od-c-french-gray);
 
-    --od-body-bg-rgb: var(--od-c-raisin-black-rgb);
-    --od-nav-bg-rgb: var(--od-c-raisin-black-rgb);
-    --od-border-rgb: var(--od-c-chinese-violet-rgb);
+  --od-body-bg-rgb: var(--od-c-raisin-black-rgb);
+  --od-nav-bg-rgb: var(--od-c-raisin-black-rgb);
+  --od-border-rgb: var(--od-c-chinese-violet-rgb);
 
-    --od-primaria-rgb: var(--od-c-ultra-violet-rgb);
+  --od-primaria-rgb: var(--od-c-ultra-violet-rgb);
 
-    --od-body-color-rgb: var(--od-c-magnolia-rgb);
-    --od-body-color-sec-rgb: var(--od-c-french-gray-rgb);
+  --od-body-color-rgb: var(--od-c-magnolia-rgb);
+  --od-body-color-sec-rgb: var(--od-c-french-gray-rgb);
 
-    --armacao: var(--od-c-magnolia);
-    --lente: var(--od-c-ultra-violet);
-  }
+  --armacao: var(--od-c-magnolia);
+  --lente: var(--od-c-ultra-violet);
 }
 
 *,
@@ -80,12 +78,11 @@
 }
 
 body {
-  color-scheme: dark;
-
   height: 100vh;
   width: 100vw;
   color: var(--od-body-color);
   background: var(--od-body-bg);
+  transition: color .6s, background .6s;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 15px;
   text-rendering: optimizeLegibility;

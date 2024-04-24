@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 import { getC, setC } from '@/services/cookies'
 
 export enum Tema {
-  claro,
-  escuro,
+  claro = 'light',
+  escuro = 'dark',
 }
 
 export function getTemaCookie() {
@@ -15,7 +15,7 @@ export function getTemaCookie() {
 }
 
 export const useThemeStore = defineStore('tema', () => {
-  const tema = ref(Tema.claro)
+  const tema = ref(Tema.escuro)
 
   function mudarTema(novoTema: Tema) {
     tema.value = novoTema

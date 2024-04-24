@@ -30,45 +30,47 @@
     align-items: baseline;
     position: relative;
     
-    cursor: pointer;
-    
     &:hover > svg {
       --anim-size-duration: .4s;
-      
+
       height: 60%;
     }
-    
+
     &:hover > .danilo:not(:has(*:hover)) {
       --anim-opacity-duration: .5s;
-      
+
       letter-spacing: -0.05em;
       margin-left: 53px;
       opacity: 1;
     }
-    
+
     svg {
       --anim-size-duration: .5s;
-      
+
       position: absolute;
       bottom: 0;
       left: 0;
       height: 100%;
       aspect-ratio: 53 / 40;
-      
+
       transition: var(--anim-size-duration) var(--ease);
-      
+
+      * {
+        transition: fill .6s var(--ease);
+      }
+
       .armacao {
         fill: var(--armacao);
       }
-      
+
       .lente {
         fill: var(--lente);
       }
     }
-    
+
     .danilo {
       --anim-opacity-duration: .1s;
-      
+
       margin-left: 0;
       padding: 0;
       width: fit-content;
@@ -76,11 +78,12 @@
       display: flex;
       align-items: flex-start;
       pointer-events: none;
-      
+      color: var(--od-body-color);
+
       letter-spacing: -0.3em;
       font-size: 6em;
       opacity: 0;
-      
+
       transition: .5s var(--ease), opacity var(--anim-opacity-duration) var(--ease);
     }
   }
