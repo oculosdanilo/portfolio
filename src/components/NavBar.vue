@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <nav class="nav">
+  <div class="nav">
     <RouterLink to="/" style="height: 63%">
       <LogoNav />
     </RouterLink>
@@ -25,7 +25,7 @@
         <span v-else class="material-symbols-outlined">dark_mode</span>
       </button>
     </div>
-  </nav>
+  </div>
 </template>
 
 <style scoped>
