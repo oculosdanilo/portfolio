@@ -29,7 +29,7 @@
     display: flex;
     align-items: baseline;
     position: relative;
-    
+
     &:hover > svg {
       --anim-size-duration: .4s;
 
@@ -84,7 +84,7 @@
       font-size: 6em;
       opacity: 0;
 
-      transition: .5s var(--ease), opacity var(--anim-opacity-duration) var(--ease);
+      transition: .5s var(--ease), opacity var(--anim-opacity-duration) var(--ease), font-weight .1s var(--ease);
     }
   }
 </style>

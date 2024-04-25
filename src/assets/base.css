@@ -10,8 +10,8 @@
   --od-c-slate-blue: #7F60BE;
   --od-c-slate-blue-rgb: 127, 96, 190;
 
-  --od-c-french-gray: #BDB9C7;
-  --od-c-french-gray-rgb: 189, 185, 199;
+  --od-c-rose-quartz: #9F99AD;
+  --od-c-rose-quartz-rgb: 159, 153, 173;
   --od-c-chinese-violet: #68617A;
   --od-c-chinese-violet-rgb: 104, 97, 122;
 
@@ -26,7 +26,7 @@
 /* variaveis de cores para o projeto */
 :root.light {
   --od-body-bg: var(--od-c-magnolia);
-  --od-nav-bg: var(--od-c-french-gray);
+  --od-nav-bg: var(--od-c-rose-quartz);
   --od-border: transparent;
 
   --od-primaria: var(--od-c-slate-blue);
@@ -38,12 +38,15 @@
   --lente: var(--od-c-raisin-black);
 
   --od-body-bg-rgb: var(--od-c-magnolia-rgb);
-  --od-nav-bg-rgb: var(--od-c-french-gray-rgb);
+  --od-nav-bg-rgb: var(--od-c-rose-quartz-rgb);
 
   --od-primaria-rgb: var(--od-c-slate-blue-rgb);
 
   --od-body-color-rgb: var(--od-c-raisin-black-rgb);
   --od-body-color-sec-rgb: var(--od-c-chinese-violet-rgb);
+
+  --bw: white;
+  --bw-invertido: black;
 }
 
 :root.dark {
@@ -54,7 +57,7 @@
   --od-primaria: var(--od-c-ultra-violet);
 
   --od-body-color: var(--od-c-magnolia);
-  --od-body-color-sec: var(--od-c-french-gray);
+  --od-body-color-sec: var(--od-c-rose-quartz);
 
   --od-body-bg-rgb: var(--od-c-raisin-black-rgb);
   --od-nav-bg-rgb: var(--od-c-raisin-black-rgb);
@@ -63,10 +66,13 @@
   --od-primaria-rgb: var(--od-c-ultra-violet-rgb);
 
   --od-body-color-rgb: var(--od-c-magnolia-rgb);
-  --od-body-color-sec-rgb: var(--od-c-french-gray-rgb);
+  --od-body-color-sec-rgb: var(--od-c-rose-quartz-rgb);
 
   --armacao: var(--od-c-magnolia);
   --lente: var(--od-c-ultra-violet);
+
+  --bw: black;
+  --bw-invertido: white;
 }
 
 *,

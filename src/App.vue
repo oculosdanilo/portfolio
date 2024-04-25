@@ -26,14 +26,14 @@
   function peekFM() {
     if (!voltando.value) {
       $('.nav').css('background-color', 'transparent')
-      $('.fundoMovel').css('right', 'calc(-100vw + ((110px * 0.55) + 4em))')
+      $('.fundoMovel').css('transform', 'translateX(calc(100vw - ((110px * 0.55) + 4em)))')
     }
   }
 
   function voltarFM() {
     if (!voltando.value) {
       $('.nav').css('background-color', 'var(--od-nav-bg)')
-      $('.fundoMovel').css('right', '-100vw')
+      $('.fundoMovel').css('transform', 'translateX(100vw)')
     }
   }
 
@@ -41,7 +41,7 @@
     voltando.value = true
     $('.temaBtn').css('pointer-events', 'none')
 
-    $('.fundoMovel').css('right', '0')
+    $('.fundoMovel').css('transform', 'translateX(0)')
 
     document.documentElement.className = temaStore.tema == Tema.escuro ? Tema.claro : Tema.escuro
     temaStore.mudarTema(temaStore.tema == Tema.escuro ? Tema.claro : Tema.escuro)
@@ -54,7 +54,7 @@
       setTimeout(() => {
         settarFundoMovel()
       }, 401)
-    }, 451)
+    }, 501)
   }
 </script>
 
@@ -66,7 +66,11 @@
   </nav>
 
   <section style="z-index: 2; position: fixed; bottom: 0; height: calc(100vh - 110px); width: 100vw">
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <Transition name="transitionPage">
+        <Component :is="Component" />
+      </Transition>
+    </RouterView>
   </section>
 </template>
 
@@ -74,12 +78,11 @@
   .fundoMovel {
     z-index: 1;
     position: absolute;
-    top: 0;
-    right: -100vw;
+    transform: translateX(100vw);
 
     width: 100vw;
     height: 100vh;
 
-    transition: right .4s;
+    transition: transform .4s;
   }
 </style>
