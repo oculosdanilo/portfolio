@@ -1,9 +1,11 @@
+<!--suppress ALL -->
 <script setup lang="ts">
   import { RouterView } from 'vue-router'
   import NavBar from '@/components/NavBar.vue'
   import { onMounted, ref } from 'vue'
   import { getTemaCookie, Tema, useThemeStore } from '@/stores/theme'
   import $ from 'jquery'
+  import router from '@/router'
 
   const temaStore = useThemeStore()
 
@@ -56,6 +58,16 @@
       }, 401)
     }, 501)
   }
+
+  router.afterEach((to, from) => {
+    if (from.name == 'home')
+      $('body').off('mousemove')
+    const fromIndex = router.getRoutes().indexOf(from.matched[0])
+    const toIndex = router.getRoutes().indexOf(to.matched[0])
+
+    /*fromIndex < toIndex ? 'esquerda' : 'direita'*/
+    to.meta.transition = fromIndex < toIndex ? 'direita' : 'esquerda'
+  })
 </script>
 
 <template>
@@ -66,8 +78,8 @@
   </nav>
 
   <section style="z-index: 2; position: fixed; bottom: 0; height: calc(100vh - 110px); width: 100vw">
-    <RouterView v-slot="{ Component }">
-      <Transition name="transitionPage">
+    <RouterView v-slot="{ Component, route }">
+      <Transition :name="route.meta.transition as string" mode="out-in">
         <Component :is="Component" />
       </Transition>
     </RouterView>
@@ -75,6 +87,38 @@
 </template>
 
 <style scoped>
+  .esquerda-enter-active,
+  .esquerda-leave-active,
+  .direita-enter-active,
+  .direita-leave-active {
+    transition: transform .1s var(--ease), opacity .1s var(--ease);
+  }
+
+  .esquerda-enter-from,
+  .esquerda-leave-to,
+  .direita-enter-from,
+  .direita-leave-to {
+    opacity: 0;
+  }
+
+  .esquerda-enter-to,
+  .esquerda-leave-from,
+  .direita-enter-to,
+  .direita-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .esquerda-enter-from,
+  .direita-leave-to {
+    transform: translateX(-2vw);
+  }
+
+  .direita-enter-from,
+  .esquerda-leave-to {
+    transform: translateX(2vw);
+  }
+
   .fundoMovel {
     z-index: 1;
     position: absolute;

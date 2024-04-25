@@ -8,10 +8,7 @@ export enum Tema {
 }
 
 export function getTemaCookie() {
-  if (getC('tema') == 'light')
-    return Tema.claro
-  else
-    return Tema.escuro
+  return getC('tema') as Tema
 }
 
 export const useThemeStore = defineStore('tema', () => {

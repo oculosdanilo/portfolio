@@ -1,10 +1,20 @@
 <script setup lang="ts">
-  import { onMounted } from 'vue'
+  import { onMounted, onUnmounted } from 'vue'
   import $ from 'jquery'
 
   const ano = new Date().getFullYear()
+  let nInterval = 0
 
   onMounted(() => {
+    let o = 0
+    const fontes = ['Bebas Neue', 'Roboto', 'Jersey 10', 'Josefin Sans', 'Roboto Mono']
+    nInterval = setInterval(() => {
+      $('.titulo').css('font-family', `'${fontes[o]}', sans-serif`)
+      o++
+      if (o == 5)
+        o = 0
+    }, 500)
+
     $('body').on('mousemove', function(event) {
       let eye = $('.lenteOut1')
       let x1 = (eye.offset()!.left) + (eye.width()! / 2)
@@ -30,6 +40,10 @@
         'transform': 'rotate(' + rot + 'deg)'
       })
     })
+  })
+
+  onUnmounted(() => {
+    clearInterval(nInterval)
   })
 </script>
 
@@ -73,9 +87,10 @@
     }
 
     .titulo {
-      font-size: 4em;
+      font-size: 5em;
       font-weight: 900;
       margin: .4em 0;
+      line-height: 1em;
     }
 
     .desc {
