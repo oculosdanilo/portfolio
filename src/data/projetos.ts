@@ -10,22 +10,25 @@ export const DATA: Projeto[] = [
     nome: 'Arquivo 2021',
     desc: 'Meu primeiro portfolio',
     img: '/2021.png',
-    href: ''
+    href: 'https://osprojetos.web.app/2021'
   },
   {
     nome: 'Cidades 3.0',
     desc: 'As principais capitais do Brasil',
-    img: '/cidades3.png'
+    img: '/cidades3.png',
+    href: 'https://osprojetos.web.app/2021/0903'
   },
   {
     nome: 'Arquivo 2022',
     desc: 'Meu segundo portfolio, feito com design responsivo em mente',
-    img: '/2022.png'
+    img: '/2022.png',
+    href: 'https://osprojetos.web.app/2022'
   },
   {
     nome: 'StarWars API',
     desc: 'Front-end com mock-API do StarWars',
-    img: '/starwars.png'
+    img: '/starwars.png',
+    href: 'https://osprojetos.web.app/2022/1020'
   },
   {
     nome: 'Arquivo 2023',
@@ -36,6 +39,7 @@ export const DATA: Projeto[] = [
   {
     nome: 'Gatopédia!',
     desc: 'Uma enciclopédia de gatos!',
-    img: '/gagopedia.png'
+    img: '/gagopedia.png',
+    href: 'https://osprojetos.web.app/2023/gatopedia'
   }
 ]

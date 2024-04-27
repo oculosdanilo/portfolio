@@ -25,7 +25,7 @@
           <h2>{{ projeto.nome }}</h2>
           <p>{{ projeto.desc }}</p>
         </div>
-        <a class="botao">ACESSAR</a>
+        <a :href="projeto.href" target="_blank" class="botao">ACESSAR</a>
       </div>
     </div>
   </div>
