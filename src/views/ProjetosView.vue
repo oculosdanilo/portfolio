@@ -8,7 +8,8 @@
     const divCarr = document.querySelector('.main-carousel')!
     const carroseu = new Flickity(divCarr, {
       wrapAround: true,
-      cellAlign: 'left'
+      cellAlign: 'left',
+      freeScroll: true
     })
   })
 </script>

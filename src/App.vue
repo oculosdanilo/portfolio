@@ -66,6 +66,7 @@
     const toIndex = router.getRoutes().indexOf(to.matched[0])
 
     to.meta.transition = fromIndex < toIndex ? 'direita' : 'esquerda'
+    document.title = to.meta.title as string
   })
 </script>
 
