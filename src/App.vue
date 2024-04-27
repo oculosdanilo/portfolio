@@ -65,7 +65,6 @@
     const fromIndex = router.getRoutes().indexOf(from.matched[0])
     const toIndex = router.getRoutes().indexOf(to.matched[0])
 
-    /*fromIndex < toIndex ? 'esquerda' : 'direita'*/
     to.meta.transition = fromIndex < toIndex ? 'direita' : 'esquerda'
   })
 </script>
