@@ -1,4 +1,4 @@
-<!--suppress ALL -->
+<!--suppress CssUnusedSymbol -->
 <script setup lang="ts">
   import Flickity from 'flickity'
   import { DATA } from '@/data/projetos'
@@ -6,7 +6,7 @@
 
   onMounted(() => {
     const divCarr = document.querySelector('.main-carousel')!
-    const carroseu = new Flickity(divCarr, {
+    new Flickity(divCarr, {
       wrapAround: true,
       cellAlign: 'left',
       freeScroll: true
@@ -47,7 +47,7 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 0 3em;
+    padding: 0 calc(((110px * 0.55) + 4em)) 0 3em;
 
     h1 {
       font-weight: 900;
