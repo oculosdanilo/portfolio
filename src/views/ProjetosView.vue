@@ -47,7 +47,7 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 0 calc(((110px * 0.55) + 4em)) 0 3em;
+    padding: 0 calc(((110px * 0.55) + 4em));
 
     h1 {
       font-weight: 900;
