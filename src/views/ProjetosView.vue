@@ -79,6 +79,7 @@
           border-radius: 999px;
           font-size: 20px;
           background-color: var(--od-primaria);
+          color: #E9E7EF;
         }
 
         .conteudo {

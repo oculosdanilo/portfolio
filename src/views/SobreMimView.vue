@@ -1,19 +1,51 @@
-<!--suppress CssReplaceWithShorthandSafely -->
+<script setup lang="ts">
+  import EuFoto from '@/components/EuFoto.vue'
+  import { onMounted, onUnmounted } from 'vue'
+  import Flickity from 'flickity'
+
+  let flckty: Flickity
+  onMounted(() => {
+    flckty = new Flickity('.redesCards', {
+      contain: true,
+      cellAlign: 'left'
+    })
+  })
+
+  onUnmounted(() => {
+    flckty.destroy()
+  })
+</script>
+
 <template>
   <div class="container">
-    <div class="eu">
-      <div class="dec l1"></div>
-      <div class="dec l2"></div>
-      <div class="dec l3"></div>
-      <div class="dec l4"></div>
-      <div class="dec l5"></div>
-    </div>
+    <EuFoto />
     <div class="sobre">
-      <div class="desc"></div>
-      <div class="redesCards"></div>
+      <p class="desc">“Meu nome é (o)Danilo, tenho 18 anos e sou Técnico em Informática para Internet. Também sou
+                      desenvolvedor WEB full-stack e mobile.”</p>
+      <div class="redesCards">
+        <a target="_blank" href="https://github.com/oculosdanilo" class="card">
+          <img src="/github.png" alt="Github">
+        </a>
+        <a target="_blank" href="https://twitter.com/oDanilo05" class="card">
+          <img src="/x.png" alt="X (Twitter)">
+        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/danilo-lima-99bb57304/" class="card">
+          <img src="/linkedin.png" alt="Linkedin">
+        </a>
+      </div>
       <div class="github">
         <h1>Meu Github</h1>
-        <div class="ghCards"></div>
+        <div class="ghCards">
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=oculosdanilo&layout=compact&bg_color=63459b&title_color=E9E7EF&text_color=E9E7EF&hide_border=true&locale=pt-br"
+            width="440px" alt="" />
+          <div class="ghRepos">
+            <object type="image/svg+xml"
+                    data="https://gh-card.dev/repos/oculosdanilo/gatopedia.svg?fullname=&link_target=_blank"></object>
+            <object type="image/svg+xml"
+                    data="https://gh-card.dev/repos/journey-etecct/flyvoo-app.svg?fullname=&link_target=_blank"></object>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -27,209 +59,62 @@
     align-items: center;
     padding: 0 calc(((110px * 0.55) + 4em));
 
-    .eu {
-      width: calc(100% / 3);
-      height: 60%;
-      position: relative;
-
-      background: url("/danilo.png") no-repeat top center;
-      background-size: 67%;
-
-      .dec {
-        position: absolute;
-
-        &.l1 {
-          width: 40px;
-          aspect-ratio: 1;
-          border-radius: 50%;
-          background: var(--od-primaria);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-          animation: l1 2s infinite cubic-bezier(0.3, 1, 0, 1);
-        }
-
-        &.l2 {
-          width: 45px;
-          aspect-ratio: 1;
-          --c: no-repeat repeating-linear-gradient(90deg, var(--od-primaria) 0 calc(100% / 7), #0000 0 calc(200% / 7));
-          background: var(--c), var(--c), var(--c), var(--c);
-          background-size: 140% 26%;
-          animation: l26 .75s infinite linear;
-        }
-
-        &.l3 {
-          width: 40px;
-          aspect-ratio: 1;
-          --c: no-repeat linear-gradient(var(--od-primaria) 0 0);
-          background: var(--c) 0 0,
-          var(--c) 0 100%,
-          var(--c) 50% 0,
-          var(--c) 50% 100%,
-          var(--c) 100% 0,
-          var(--c) 100% 100%;
-          background-size: 8px 50%;
-          animation: l7-0 1s infinite;
-          overflow: hidden;
-        }
-
-        &.l3:before {
-          content: "";
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: var(--od-primaria);
-          top: calc(50% - 4px);
-          left: -8px;
-          animation: inherit;
-          animation-name: l7-1;
-        }
-
-        &.l4 {
-          width: 40px;
-          aspect-ratio: 1;
-          --c: linear-gradient(var(--od-primaria) 0 0);
-          --m: radial-gradient(farthest-side, var(--od-primaria) 92%, #0000);
-          background: var(--m) center               /12px 12px,
-          var(--c) left 50% top -20px/8px 16px,
-          var(--c) left 50% bottom -20px/8px 16px,
-          var(--c) top 50% left -20px/16px 8px,
-          var(--c) top 50% right -20px/16px 8px;
-          background-repeat: no-repeat;
-          animation: l18-1 1.5s infinite,
-          l18-2 1.5s infinite;
-        }
-
-        &.l5 {
-          width: 40px;
-          aspect-ratio: 1;
-          color: var(--od-primaria);
-          background: radial-gradient(10px, currentColor 94%, #0000);
-        }
-
-        &.l5:before {
-          content: '';
-          inset: 0;
-          border-radius: 50%;
-          position: absolute;
-          background: radial-gradient(9px at bottom right, #0000 94%, currentColor) top left,
-          radial-gradient(9px at bottom left, #0000 94%, currentColor) top right,
-          radial-gradient(9px at top right, #0000 94%, currentColor) bottom left,
-          radial-gradient(9px at top left, #0000 94%, currentColor) bottom right;
-          background-size: 20px 20px;
-          background-repeat: no-repeat;
-          animation: l18 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
-        }
-      }
-    }
-
     .sobre {
       width: calc((100% / 3) * 2);
       height: 100%;
-    }
-  }
+      padding-left: 5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-  @keyframes l1 {
-    33% {
-      border-radius: 0;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
-    }
-    66% {
-      border-radius: 0;
-      clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%)
-    }
-  }
+      .github {
+        margin-bottom: 4em;
 
-  @keyframes l26 {
-    0%,
-    5% {
-      background-position: 0 calc(0 * 100% / 3), 0 calc(1 * 100% / 3), 0 calc(2 * 100% / 3), 0 calc(3 * 100% / 3)
-    }
-    20% {
-      background-position: 50% calc(0 * 100% / 3), 0 calc(1 * 100% / 3), 0 calc(2 * 100% / 3), 0 calc(3 * 100% / 3)
-    }
-    40% {
-      background-position: 100% calc(0 * 100% / 3), 50% calc(1 * 100% / 3), 0 calc(2 * 100% / 3), 0 calc(3 * 100% / 3)
-    }
-    60% {
-      background-position: 100% calc(0 * 100% / 3), 100% calc(1 * 100% / 3), 50% calc(2 * 100% / 3), 0 calc(3 * 100% / 3)
-    }
-    80% {
-      background-position: 100% calc(0 * 100% / 3), 100% calc(1 * 100% / 3), 100% calc(2 * 100% / 3), 50% calc(3 * 100% / 3)
-    }
-    95%,
-    100% {
-      background-position: 100% calc(0 * 100% / 3), 100% calc(1 * 100% / 3), 100% calc(2 * 100% / 3), 100% calc(3 * 100% / 3)
-    }
-  }
+        .ghCards {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
 
-  @keyframes l7-0 {
-    16.67% {
-      background-size: 8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%
-    }
-    33.33% {
-      background-size: 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%
-    }
-    50% {
-      background-size: 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%
-    }
-    66.67% {
-      background-size: 8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%
-    }
-    83.33% {
-      background-size: 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%
-    }
-  }
+          .ghRepos {
+            width: min-content;
 
-  @keyframes l7-1 {
-    20% {
-      left: 0
-    }
-    40% {
-      left: calc(50% - 4px)
-    }
-    60% {
-      left: calc(100% - 8px)
-    }
-    80%,
-    100% {
-      left: 100%
-    }
-  }
+            object {
+              border-radius: 1em;
+            }
+          }
+        }
 
-  @keyframes l18-1 {
-    30%,
-    70% {
-      background-position: center,
-      left 50% top calc(50% - 8px),
-      left 50% bottom calc(50% - 8px),
-      top 50% left calc(50% - 8px),
-      top 50% right calc(50% - 8px)
-    }
-  }
+        h1 {
+          width: 100%;
+          margin-bottom: .5em;
 
-  @keyframes l18-2 {
-    0%, 40% {
-      transform: rotate(0)
-    }
-    60%, 100% {
-      transform: rotate(90deg)
-    }
-  }
+          font-size: 4em;
+          border-bottom: 3px solid var(--od-body-color);
+        }
+      }
 
-  @keyframes l18 {
-    33% {
-      inset: -10px;
-      transform: rotate(0deg)
-    }
-    66% {
-      inset: -10px;
-      transform: rotate(90deg)
-    }
-    100% {
-      inset: 0;
-      transform: rotate(90deg)
+      .redesCards {
+        width: 100%;
+
+        .card {
+          height: 166px;
+          width: 272px;
+          margin-right: 2em;
+
+          border-radius: 1em;
+          overflow: hidden;
+        }
+      }
+
+      .desc {
+        width: 100%;
+        padding-left: 1em;
+        margin: 1em 0;
+
+        font-size: xx-large;
+        border-left: 3px solid var(--od-body-color);
+        color: var(--od-body-color-sec);
+      }
     }
   }
 </style>
-<script setup lang="ts">
-</script>

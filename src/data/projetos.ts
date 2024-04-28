@@ -2,7 +2,7 @@ export type Projeto = {
   nome: string;
   desc: string;
   img: string;
-  href?: string;
+  href: string;
 }
 
 export const DATA: Projeto[] = [

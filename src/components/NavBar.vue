@@ -2,17 +2,26 @@
 <script setup lang="ts">
   import LogoNav from '@/components/LogoNav.vue'
   import { Tema, useThemeStore } from '@/stores/theme'
+  import { celular } from '@/services/celular'
+  import $ from 'jquery'
 
   const temaStore = useThemeStore()
+
+  function menuToggle() {
+    $('.botaoMenu').toggleClass('selecionado')
+  }
 </script>
 
 <template>
+  <div class="navMobile" v-if="celular">
+
+  </div>
   <div class="nav">
     <RouterLink to="/" style="height: 63%" active-class="ativoLogo">
       <LogoNav />
     </RouterLink>
 
-    <div class="botoes">
+    <div class="botoes" v-if="!celular">
       <div class="navegacao">
         <RouterLink to="/projetos" active-class="ativo">Projetos</RouterLink>
         <RouterLink to="/sobremim" active-class="ativo">Sobre mim</RouterLink>
@@ -25,25 +34,13 @@
         </Transition>
       </button>
     </div>
+    <button class="botaoMenu" v-else @click="menuToggle">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
   </div>
 </template>
 
 <style scoped>
-  .darklight-enter-from,
-  .darklight-leave-to {
-    transform: scaleX(0);
-  }
-
-  .darklight-enter-to,
-  .darklight-leave-from {
-    transform: scaleX(1);
-  }
-
-  .darklight-enter-active,
-  .darklight-leave-active {
-    transition: transform .2s var(--ease);
-  }
-
   .nav {
     width: 100vw;
     height: 110px;
@@ -126,6 +123,46 @@
 
           color: var(--od-body-color);
         }
+      }
+    }
+  }
+
+  .darklight-enter-from,
+  .darklight-leave-to {
+    transform: scaleX(0);
+  }
+
+  .darklight-enter-to,
+  .darklight-leave-from {
+    transform: scaleX(1);
+  }
+
+  .darklight-enter-active,
+  .darklight-leave-active {
+    transition: transform .2s var(--ease);
+  }
+
+  @media (max-width: 768px) {
+    .botaoMenu {
+      height: 60%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: transparent;
+      border: 2px solid var(--od-primaria);
+      border-radius: 1em;
+
+      transition: background-color .1s;
+
+      span {
+        color: var(--od-body-color);
+        scale: 1.4;
+      }
+
+      &.selecionado {
+        background-color: rgba(var(--od-primaria-rgb), .2);
       }
     }
   }

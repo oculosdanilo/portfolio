@@ -87,4 +87,10 @@
       transition: .5s var(--ease), opacity var(--anim-opacity-duration) var(--ease), font-weight .1s var(--ease);
     }
   }
+
+  @media (max-width: 768px) {
+    .logo {
+      pointer-events: none;
+    }
+  }
 </style>

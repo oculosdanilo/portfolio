@@ -1,4 +1,4 @@
-<!--suppress ALL -->
+<!--suppress CssUnusedSymbol -->
 <script setup lang="ts">
   import { RouterView } from 'vue-router'
   import NavBar from '@/components/NavBar.vue'
@@ -128,5 +128,11 @@
     height: 100vh;
 
     transition: transform .4s;
+  }
+
+  @media (max-width: 768px) {
+    .fundoMovel {
+      display: none;
+    }
   }
 </style>

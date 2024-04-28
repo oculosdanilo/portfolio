@@ -1,45 +1,48 @@
 <script setup lang="ts">
   import { onMounted, onUnmounted } from 'vue'
   import $ from 'jquery'
+  import { celular } from '@/services/celular'
 
   const ano = new Date().getFullYear()
   let nInterval = 0
 
   onMounted(() => {
-    let o = 0
-    const fontes = ['Bebas Neue', 'Roboto', 'Jersey 10', 'Josefin Sans', 'Roboto Mono']
-    nInterval = setInterval(() => {
-      $('.titulo').css('font-family', `'${fontes[o]}', sans-serif`)
-      o++
-      if (o == 5)
-        o = 0
-    }, 500)
+    if (!celular) {
+      let o = 0
+      const fontes = ['Bebas Neue', 'Roboto', 'Jersey 10', 'Josefin Sans', 'Roboto Mono']
+      nInterval = setInterval(() => {
+        $('.titulo').css('font-family', `'${fontes[o]}', sans-serif`)
+        o++
+        if (o == 5)
+          o = 0
+      }, 250)
 
-    $('body').on('mousemove', function(event) {
-      let eye = $('.lenteOut1')
-      let x1 = (eye.offset()!.left) + (eye.width()! / 2)
-      let y1 = (eye.offset()!.top) + (eye.height()! / 2)
-      let rad1 = Math.atan2(event.pageX - x1, event.pageY - y1)
-      let rot1 = (rad1 * (180 / Math.PI) * -1) + 180
-      eye.css({
-        '-webkit-transform': 'rotate(' + rot1 + 'deg)',
-        '-moz-transform': 'rotate(' + rot1 + 'deg)',
-        '-ms-transform': 'rotate(' + rot1 + 'deg)',
-        'transform': 'rotate(' + rot1 + 'deg)'
-      })
+      $('body').on('mousemove', function(event) {
+        let eye = $('.lenteOut1')
+        let x1 = (eye.offset()!.left) + (eye.width()! / 2)
+        let y1 = (eye.offset()!.top) + (eye.height()! / 2)
+        let rad1 = Math.atan2(event.pageX - x1, event.pageY - y1)
+        let rot1 = (rad1 * (180 / Math.PI) * -1) + 180
+        eye.css({
+          '-webkit-transform': 'rotate(' + rot1 + 'deg)',
+          '-moz-transform': 'rotate(' + rot1 + 'deg)',
+          '-ms-transform': 'rotate(' + rot1 + 'deg)',
+          'transform': 'rotate(' + rot1 + 'deg)'
+        })
 
-      let eye2 = $('.lenteOut2')
-      let x = (eye2.offset()!.left) + (eye2.width()! / 2)
-      let y = (eye2.offset()!.top) + (eye2.height()! / 2)
-      let rad = Math.atan2(event.pageX - x, event.pageY - y)
-      let rot = (rad * (180 / Math.PI) * -1) + 180
-      eye2.css({
-        '-webkit-transform': 'rotate(' + rot + 'deg)',
-        '-moz-transform': 'rotate(' + rot + 'deg)',
-        '-ms-transform': 'rotate(' + rot + 'deg)',
-        'transform': 'rotate(' + rot + 'deg)'
+        let eye2 = $('.lenteOut2')
+        let x = (eye2.offset()!.left) + (eye2.width()! / 2)
+        let y = (eye2.offset()!.top) + (eye2.height()! / 2)
+        let rad = Math.atan2(event.pageX - x, event.pageY - y)
+        let rot = (rad * (180 / Math.PI) * -1) + 180
+        eye2.css({
+          '-webkit-transform': 'rotate(' + rot + 'deg)',
+          '-moz-transform': 'rotate(' + rot + 'deg)',
+          '-ms-transform': 'rotate(' + rot + 'deg)',
+          'transform': 'rotate(' + rot + 'deg)'
+        })
       })
-    })
+    }
   })
 
   onUnmounted(() => {
@@ -146,6 +149,20 @@
         .armacao {
           fill: var(--od-primaria);
         }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: 100vw;
+
+      .titulo {
+        font-size: 3em;
+      }
+
+      .oculos {
+        scale: 0.8;
       }
     }
   }
