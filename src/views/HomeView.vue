@@ -158,6 +158,7 @@
   @media (max-width: 768px) {
     .container {
       width: 100vw;
+      padding-top: 5em;
 
       .titulo {
         font-size: 3em;
