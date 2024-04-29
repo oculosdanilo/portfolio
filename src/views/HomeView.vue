@@ -1,13 +1,15 @@
 <script setup lang="ts">
   import { onMounted, onUnmounted } from 'vue'
   import $ from 'jquery'
-  import { celular } from '@/services/celular'
+  import { useCelularStore } from '@/stores/celular'
+
+  const celularStore = useCelularStore()
 
   const ano = new Date().getFullYear()
   let nInterval = 0
 
   onMounted(() => {
-    if (!celular) {
+    if (!celularStore.celular) {
       let o = 0
       const fontes = ['Bebas Neue', 'Roboto', 'Jersey 10', 'Josefin Sans', 'Roboto Mono']
       nInterval = setInterval(() => {

@@ -123,6 +123,40 @@
     }
   }
 
+  @media (max-width: 768px) {
+    .eu {
+      width: 50vw;
+      height: 100vw;
+      background-size: contain;
+      background-position: center;
+      margin: 0 auto;
+
+      .dec {
+        &.l1 {
+          top: 26px;
+          left: -62px;
+        }
+
+        &.l2 {
+          top: 43px;
+          right: -42px;
+        }
+
+        &.l3 {
+          left: -35px;
+        }
+
+        &.l4 {
+          right: 44px;
+        }
+
+        &.l5 {
+          right: -75px;
+        }
+      }
+    }
+  }
+
   @keyframes l1 {
     33% {
       border-radius: 0;

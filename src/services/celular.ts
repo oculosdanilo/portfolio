@@ -1,1 +1,0 @@
-export const celular = matchMedia('(max-width: 768px)').matches

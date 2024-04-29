@@ -38,7 +38,7 @@
         <div class="ghCards">
           <img
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=oculosdanilo&layout=compact&bg_color=63459b&title_color=E9E7EF&text_color=E9E7EF&hide_border=true&locale=pt-br"
-            width="440px" alt="" />
+            alt="" />
           <div class="ghRepos">
             <object type="image/svg+xml"
                     data="https://gh-card.dev/repos/oculosdanilo/gatopedia.svg?fullname=&link_target=_blank"></object>
@@ -74,6 +74,10 @@
           width: 100%;
           display: flex;
           justify-content: space-between;
+
+          img {
+            width: 440px;
+          }
 
           .ghRepos {
             width: min-content;
@@ -114,6 +118,37 @@
         font-size: xx-large;
         border-left: 3px solid var(--od-body-color);
         color: var(--od-body-color-sec);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      display: block;
+      overflow-y: scroll;
+      padding: 0 1em;
+
+      .sobre {
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+
+        .github {
+          margin-top: 2em;
+
+          .ghCards {
+            flex-direction: column;
+
+            img {
+              width: calc(100vw - 2em);
+            }
+
+            .ghRepos * {
+              width: calc(100vw - 2em);
+              height: 110px;
+            }
+          }
+        }
       }
     }
   }

@@ -2,26 +2,24 @@
 <script setup lang="ts">
   import LogoNav from '@/components/LogoNav.vue'
   import { Tema, useThemeStore } from '@/stores/theme'
-  import { celular } from '@/services/celular'
   import $ from 'jquery'
+  import { useCelularStore } from '@/stores/celular'
 
+  const celularStore = useCelularStore()
   const temaStore = useThemeStore()
 
   function menuToggle() {
-    $('.botaoMenu').toggleClass('selecionado')
+    $('.botaoMenu, .navMobile').toggleClass('selecionado')
   }
 </script>
 
 <template>
-  <div class="navMobile" v-if="celular">
-
-  </div>
   <div class="nav">
     <RouterLink to="/" style="height: 63%" active-class="ativoLogo">
       <LogoNav />
     </RouterLink>
 
-    <div class="botoes" v-if="!celular">
+    <div class="botoes" v-if="!celularStore.celular">
       <div class="navegacao">
         <RouterLink to="/projetos" active-class="ativo">Projetos</RouterLink>
         <RouterLink to="/sobremim" active-class="ativo">Sobre mim</RouterLink>

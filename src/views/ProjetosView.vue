@@ -62,12 +62,17 @@
     .main-carousel {
       .carousel-cell {
         height: 474px;
-        width: 364px;
+        aspect-ratio: 364 / 474;
         margin-left: 2em;
 
         background-color: rgba(var(--od-body-color-rgb), .1);
         border-radius: 2em;
         overflow: hidden;
+
+        img {
+          height: 50%;
+          aspect-ratio: 364 / 237;
+        }
 
         .botao {
           width: fit-content;
@@ -92,6 +97,33 @@
           p {
             font-size: 1.5em;
             color: var(--od-body-color-sec);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .espaco {
+      padding: 0 1em;
+
+      h1 {
+        font-size: 4em;
+        margin-bottom: .5em;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+
+      .main-carousel {
+        .carousel-cell {
+          height: 400px;
+
+          .conteudo {
+            h2 {
+              font-size: 2em;
+            }
           }
         }
       }
