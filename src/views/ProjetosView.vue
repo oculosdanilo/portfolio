@@ -105,7 +105,7 @@
 
   @media (max-width: 768px) {
     .espaco {
-      padding: 0 1em;
+      padding: 3em 1em 0;
 
       h1 {
         font-size: 4em;

@@ -126,7 +126,7 @@
     .container {
       display: block;
       overflow-y: scroll;
-      padding: 0 1em;
+      padding: 3em 1em 0;
 
       .sobre {
         flex-direction: column;
