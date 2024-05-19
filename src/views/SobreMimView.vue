@@ -32,6 +32,9 @@
         <a target="_blank" href="https://www.linkedin.com/in/danilo-lima-99bb57304/" class="card">
           <img src="/linkedin.png" alt="Linkedin">
         </a>
+        <a target="_blank" href="/curriculo.pdf" class="card">
+          <img src="/cu-rriculo.png" alt="Meu currículo">
+        </a>
       </div>
       <div class="github">
         <h1>Meu Github</h1>
@@ -80,7 +83,9 @@
           }
 
           .ghRepos {
-            width: min-content;
+            width: max-content;
+            display: flex;
+            flex-direction: column;
 
             object {
               border-radius: 1em;

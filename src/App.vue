@@ -7,6 +7,7 @@
   import $ from 'jquery'
   import router from '@/router'
   import { useCelularStore } from '@/stores/celular'
+  import { getC } from '@/services/cookies'
 
   const celularStore = useCelularStore()
   const temaStore = useThemeStore()
@@ -14,9 +15,13 @@
   const voltando = ref(false)
 
   onMounted(() => {
-    temaStore.mudarTema(getTemaCookie())
-    document.documentElement.className = getTemaCookie()
-
+    if (getC("tema") !== null) {
+      temaStore.mudarTema(getTemaCookie())
+      document.documentElement.className = getTemaCookie()
+    } else {
+      temaStore.mudarTema(Tema.escuro)
+      document.documentElement.className = Tema.escuro
+    }
     settarFundoMovel()
   })
 
