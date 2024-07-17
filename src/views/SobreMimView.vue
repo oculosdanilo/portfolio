@@ -21,7 +21,7 @@
     <EuFoto />
     <div class="sobre">
       <p class="desc">“Meu nome é (o)Danilo, tenho 18 anos e sou Técnico em Informática para Internet. Também sou
-                      desenvolvedor WEB full-stack e mobile.”</p>
+                      desenvolvedor WEB e mobile full-stack.”</p>
       <div class="redesCards">
         <a target="_blank" href="https://github.com/oculosdanilo" class="card">
           <img src="/github.png" alt="Github">
