@@ -19,7 +19,7 @@
     <h1>Meus projetos</h1>
     <p>Meus melhores projetos reproduzíveis até agora:</p>
     <div class="main-carousel">
-      <div class="carousel-cell" v-for="projeto in DATA">
+      <div class="carousel-cell" v-for="projeto in DATA" :key="projeto.nome">
         <img :src="projeto.img" :alt="projeto.desc" class="imagem" />
         <div class="conteudo">
           <h2>{{ projeto.nome }}</h2>

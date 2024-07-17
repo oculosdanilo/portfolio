@@ -6,6 +6,21 @@
     <div class="dec l3"></div>
     <div class="dec l4"></div>
     <div class="dec l5"></div>
+    <div class="sec">
+      <div class="dec l1"></div>
+      <div class="dec l2"></div>
+      <div class="dec l3"></div>
+      <div class="dec l4"></div>
+      <div class="dec l5"></div>
+    </div>
+    <div class="ter">
+      <div class="dec l1"></div>
+      <div class="dec l2"></div>
+      <div class="dec l3"></div>
+      <div class="dec l4"></div>
+      <div class="dec l5"></div>
+    </div>
+    <img src="/danilo.png" alt="eu <3" />
   </div>
 </template>
 
@@ -14,13 +29,34 @@
     width: calc(100% / 3);
     height: 60%;
     position: relative;
+    z-index: 20;
 
-    background: url("/danilo.png") no-repeat top center;
-    background-size: 67%;
+    img {
+      width: 67%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    .sec {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: scale(0.75) rotate(35deg) translate(-10%, -5%);
+    }
+
+    .ter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: scale(0.7) rotate(95deg) translate(-20%, 8%);
+    }
 
     .dec {
       position: absolute;
       scale: 1.3;
+      z-index: 19;
 
       &.l1 {
         width: 40px;
@@ -119,6 +155,48 @@
         background-size: 20px 20px;
         background-repeat: no-repeat;
         animation: l18 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+      }
+
+      .sec > &.l1, .sec > &.l3:before {
+        background: rgba(var(--od-primaria-rgb), 0.75);
+      }
+
+      .sec > &.l2 {
+        --c: no-repeat repeating-linear-gradient(90deg, rgba(var(--od-primaria-rgb), 0.75) 0 calc(100% / 7), #0000 0 calc(200% / 7));
+      }
+
+      .sec > &.l3 {
+        --c: no-repeat linear-gradient(rgba(var(--od-primaria-rgb), 0.75) 0 0, rgba(var(--od-primaria-rgb), 0.75));
+      }
+
+      .sec > &.l4 {
+        --c: linear-gradient(rgba(var(--od-primaria-rgb), 0.75) 0 0, rgba(var(--od-primaria-rgb), 0.75));
+        --m: radial-gradient(farthest-side, rgba(var(--od-primaria-rgb), 0.75) 92%, #0000);
+      }
+
+      .sec > &.l5 {
+        color: rgba(var(--od-primaria-rgb), 0.75);
+      }
+
+      .ter > &.l1, .ter > &.l3:before {
+        background: rgba(var(--od-primaria-rgb), 0.5);
+      }
+
+      .ter > &.l2 {
+        --c: no-repeat repeating-linear-gradient(90deg, rgba(var(--od-primaria-rgb), 0.5) 0 calc(100% / 7), #0000 0 calc(200% / 7));
+      }
+
+      .ter > &.l3 {
+        --c: no-repeat linear-gradient(rgba(var(--od-primaria-rgb), 0.5) 0 0, rgba(var(--od-primaria-rgb), 0.5));
+      }
+
+      .ter > &.l4 {
+        --c: linear-gradient(rgba(var(--od-primaria-rgb), 0.5) 0 0, rgba(var(--od-primaria-rgb), 0.5));
+        --m: radial-gradient(farthest-side, rgba(var(--od-primaria-rgb), 0.5) 92%, #0000);
+      }
+
+      .ter > &.l5 {
+        color: rgba(var(--od-primaria-rgb), 0.5);
       }
     }
   }
@@ -260,3 +338,5 @@
     }
   }
 </style>
+<script setup lang="ts">
+</script>
