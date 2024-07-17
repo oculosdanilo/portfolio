@@ -2,15 +2,22 @@
 <script setup lang="ts">
   import Flickity from 'flickity'
   import { DATA } from '@/data/projetos'
-  import { onMounted } from 'vue'
+  import { onMounted, onUnmounted } from 'vue'
 
+  let flickity: Flickity
   onMounted(() => {
     const divCarr = document.querySelector('.main-carousel')!
-    new Flickity(divCarr, {
+    flickity = new Flickity(divCarr, {
       wrapAround: true,
       cellAlign: 'left',
       freeScroll: true
     })
+  })
+
+  onUnmounted(() => {
+    setTimeout(() => {
+      flickity.destroy()
+    }, 101)
   })
 </script>
 

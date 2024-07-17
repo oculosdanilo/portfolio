@@ -12,7 +12,9 @@
   })
 
   onUnmounted(() => {
-    flckty.destroy()
+    setTimeout(() => {
+      flckty.destroy()
+    }, 101)
   })
 </script>
 
