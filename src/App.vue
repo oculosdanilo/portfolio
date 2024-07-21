@@ -13,11 +13,11 @@ const celularStore = useCelularStore()
 const temaStore = useThemeStore()
 
 const voltando = ref(false)
-const windowW = ref(window.innerHeight)
+const windowW = ref(window.innerHeight - 110)
 
 onMounted(() => {
   window.addEventListener('resize', () => {
-    windowW.value = window.innerHeight
+    windowW.value = window.innerHeight - 110
   })
 
   celularStore.setCelular()

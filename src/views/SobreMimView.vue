@@ -1,21 +1,21 @@
 <script setup lang="ts">
-  import EuFoto from '@/components/EuFoto.vue'
-  import { onMounted, onUnmounted } from 'vue'
-  import Flickity from 'flickity'
+import EuFoto from '@/components/EuFoto.vue'
+import { onMounted, onUnmounted } from 'vue'
+import Flickity from 'flickity'
 
-  let flckty: Flickity
-  onMounted(() => {
-    flckty = new Flickity('.redesCards', {
-      contain: true,
-      cellAlign: 'left'
-    })
+let flckty: Flickity
+onMounted(() => {
+  flckty = new Flickity('.redesCards', {
+    contain: true,
+    cellAlign: 'left'
   })
+})
 
-  onUnmounted(() => {
-    setTimeout(() => {
-      flckty.destroy()
-    }, 101)
-  })
+onUnmounted(() => {
+  setTimeout(() => {
+    flckty.destroy()
+  }, 101)
+})
 </script>
 
 <template>
@@ -23,7 +23,7 @@
     <EuFoto />
     <div class="sobre">
       <p class="desc">“Meu nome é (o)Danilo, tenho 18 anos e sou Técnico em Informática para Internet. Também sou
-                      desenvolvedor WEB e mobile full-stack.”</p>
+        desenvolvedor WEB e mobile full-stack.”</p>
       <div class="redesCards">
         <a target="_blank" href="https://github.com/oculosdanilo" class="card">
           <img src="/github.png" alt="Github">
@@ -57,106 +57,106 @@
 </template>
 
 <style scoped>
-  .container {
-    width: 100%;
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 calc(((110px * 0.55) + 4em));
+
+  .sobre {
+    width: calc((100% / 3) * 2);
     height: 100%;
+    padding-left: 5em;
     display: flex;
-    align-items: center;
-    padding: 0 calc(((110px * 0.55) + 4em));
+    flex-direction: column;
+    justify-content: space-between;
+
+    .github {
+      margin-bottom: 4em;
+
+      .ghCards {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        img {
+          width: 440px;
+        }
+
+        .ghRepos {
+          width: max-content;
+          display: flex;
+          flex-direction: column;
+
+          object {
+            border-radius: 1em;
+          }
+        }
+      }
+
+      h1 {
+        width: 100%;
+        margin-bottom: .5em;
+
+        font-size: 4em;
+        border-bottom: 3px solid var(--od-body-color);
+      }
+    }
+
+    .redesCards {
+      width: 100%;
+
+      .card {
+        height: 166px;
+        width: 272px;
+        margin-right: 2em;
+
+        border-radius: 1em;
+        overflow: hidden;
+      }
+    }
+
+    .desc {
+      width: 100%;
+      padding-left: 1em;
+      margin: 1em 0;
+
+      font-size: xx-large;
+      border-left: 3px solid var(--od-body-color);
+      color: var(--od-body-color-sec);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: block;
+    overflow-y: scroll;
+    padding: 0 1em;
 
     .sobre {
-      width: calc((100% / 3) * 2);
-      height: 100%;
-      padding-left: 5em;
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      padding: 0;
+      width: 100%;
 
       .github {
-        margin-bottom: 4em;
+        margin-top: 2em;
 
         .ghCards {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
+          flex-direction: column;
 
           img {
-            width: 440px;
+            width: calc(100vw - 2em);
           }
 
-          .ghRepos {
-            width: max-content;
-            display: flex;
-            flex-direction: column;
-
-            object {
-              border-radius: 1em;
-            }
-          }
-        }
-
-        h1 {
-          width: 100%;
-          margin-bottom: .5em;
-
-          font-size: 4em;
-          border-bottom: 3px solid var(--od-body-color);
-        }
-      }
-
-      .redesCards {
-        width: 100%;
-
-        .card {
-          height: 166px;
-          width: 272px;
-          margin-right: 2em;
-
-          border-radius: 1em;
-          overflow: hidden;
-        }
-      }
-
-      .desc {
-        width: 100%;
-        padding-left: 1em;
-        margin: 1em 0;
-
-        font-size: xx-large;
-        border-left: 3px solid var(--od-body-color);
-        color: var(--od-body-color-sec);
-      }
-    }
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      display: block;
-      overflow-y: scroll;
-      padding: 110px 1em 0;
-
-      .sobre {
-        flex-direction: column;
-        padding: 0;
-        width: 100%;
-
-        .github {
-          margin-top: 2em;
-
-          .ghCards {
-            flex-direction: column;
-
-            img {
-              width: calc(100vw - 2em);
-            }
-
-            .ghRepos * {
-              width: calc(100vw - 2em);
-              height: 110px;
-            }
+          .ghRepos * {
+            width: calc(100vw - 2em);
+            height: 110px;
           }
         }
       }
     }
   }
+}
 </style>

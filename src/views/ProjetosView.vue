@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import Flickity from 'flickity'
 import { DATA } from '@/data/projetos'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { useCelularStore } from '@/stores/celular'
 
 const celular = useCelularStore()
@@ -121,7 +121,7 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .espaco {
-    padding: calc(110px + 1em) 1em 0;
+    padding: 1em 1em 0;
     width: 100vw;
     justify-content: end;
     align-items: start;
