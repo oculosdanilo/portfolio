@@ -92,7 +92,7 @@ onUnmounted(() => {
 
       .botao {
         width: fit-content;
-        padding: .5em 1em;
+        padding: .5em 1em .3em;
         position: absolute;
         bottom: 1.5em;
         right: 1.5em;
