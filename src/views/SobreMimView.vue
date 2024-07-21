@@ -133,7 +133,7 @@
     .container {
       display: block;
       overflow-y: scroll;
-      padding: 3em 1em 0;
+      padding: 110px 1em 0;
 
       .sobre {
         flex-direction: column;

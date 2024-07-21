@@ -41,5 +41,12 @@ export const DATA: Projeto[] = [
     desc: 'Uma enciclopédia de gatos!',
     img: '/gagopedia.png',
     href: 'https://osprojetos.web.app/2023/gatopedia'
+  },
+  {
+    nome: 'Flyvoo',
+    desc: 'Plataforma para decisão da sua vida profissional',
+    img: '/flyvoo.png',
+    href: 'https://journey-etecct.github.io/Journey/flyvoo/',
   }
 ]
+

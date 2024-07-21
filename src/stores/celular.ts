@@ -8,9 +8,5 @@ export const useCelularStore = defineStore('celular', () => {
     celular.value = matchMedia('(max-width: 768px)').matches
   }
 
-  setInterval(() => {
-    setCelular()
-  }, 100)
-
-  return { celular }
+  return { celular, setCelular }
 })

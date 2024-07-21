@@ -11,11 +11,15 @@
   function menuToggle() {
     $('.botaoMenu, .navMobile').toggleClass('selecionado')
   }
+
+  function logoClick() {
+    $('.botaoMenu, .navMobile').removeClass('selecionado')
+  }
 </script>
 
 <template>
   <div class="nav">
-    <RouterLink to="/" style="height: 63%" active-class="ativoLogo">
+    <RouterLink to="/" style="height: 63%" active-class="ativoLogo" @click="logoClick">
       <LogoNav />
     </RouterLink>
 

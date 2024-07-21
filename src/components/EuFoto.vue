@@ -209,6 +209,13 @@
       background-position: center;
       margin: 0 auto;
 
+      img {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -55%);
+        width: 100%;
+      }
+
       .dec {
         &.l1 {
           top: 26px;

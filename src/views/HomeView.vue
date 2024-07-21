@@ -158,7 +158,11 @@
   @media (max-width: 768px) {
     .container {
       width: 100vw;
-      padding-top: 5em;
+      padding-top: calc(110px + 1em);
+
+      .copy {
+        margin-bottom: 1em;
+      }
 
       .titulo {
         font-size: 3em;
