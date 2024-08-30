@@ -2,12 +2,15 @@
 import EuFoto from '@/components/EuFoto.vue'
 import { onMounted, onUnmounted } from 'vue'
 import Flickity from 'flickity'
+import { useCelularStore } from '@/stores/celular'
+
+const celularStore = useCelularStore()
 
 let flckty: Flickity
 onMounted(() => {
   flckty = new Flickity('.redesCards', {
     contain: true,
-    cellAlign: 'left'
+    cellAlign: celularStore.celular ? 'center' : 'left'
   })
 })
 
@@ -42,7 +45,7 @@ onUnmounted(() => {
         <h1>Meu Github</h1>
         <div class="ghCards">
           <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=oculosdanilo&layout=compact&bg_color=63459b&title_color=E9E7EF&text_color=E9E7EF&hide_border=true&locale=pt-br"
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=oculosdanilo&layout=compact&bg_color=63469C&title_color=E9E7EF&text_color=E9E7EF&hide_border=true&locale=pt-br"
             alt="" />
           <div class="ghRepos">
             <object type="image/svg+xml"
@@ -88,6 +91,7 @@ onUnmounted(() => {
           width: max-content;
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
 
           object {
             border-radius: 1em;
@@ -109,11 +113,15 @@ onUnmounted(() => {
 
       .card {
         height: 166px;
-        width: 272px;
+        aspect-ratio: 272 / 166;
         margin-right: 2em;
 
         border-radius: 1em;
         overflow: hidden;
+
+        img {
+          width: 100%;
+        }
       }
     }
 
@@ -148,11 +156,13 @@ onUnmounted(() => {
 
           img {
             width: calc(100vw - 2em);
+            margin-bottom: 1em;
           }
 
           .ghRepos * {
             width: calc(100vw - 2em);
             height: 110px;
+            margin-bottom: 1em;
           }
         }
       }
