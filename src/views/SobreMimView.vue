@@ -31,8 +31,8 @@ onUnmounted(() => {
         <a target="_blank" href="https://github.com/oculosdanilo" class="card">
           <img src="/github.png" alt="Github">
         </a>
-        <a target="_blank" href="https://twitter.com/oDanilo05" class="card">
-          <img src="/x.png" alt="X (Twitter)">
+        <a target="_blank" href="https://bsky.app/profile/odanilo05.bsky.social" class="card">
+          <img src="/bsky.png" alt="Bluesky">
         </a>
         <a target="_blank" href="https://www.linkedin.com/in/danilo-lima-99bb57304/" class="card">
           <img src="/linkedin.png" alt="Linkedin">
