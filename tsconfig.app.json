@@ -18,7 +18,8 @@
       ]
     },
     "types": [
-      "jquery"
+      "jquery",
+      "node"
     ]
   }
 }

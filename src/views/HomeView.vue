@@ -6,7 +6,7 @@ import { useCelularStore } from '@/stores/celular'
 const celularStore = useCelularStore()
 
 const ano = new Date().getFullYear()
-let nInterval = 0
+let nInterval: NodeJS.Timeout
 
 onMounted(() => {
   if (!celularStore.celular) {

@@ -1,9 +1,9 @@
 <!--suppress CssUnusedSymbol -->
 <script setup lang="ts">
-import Flickity from 'flickity'
 import { DATA } from '@/data/projetos'
 import { onMounted, onUnmounted } from 'vue'
 import { useCelularStore } from '@/stores/celular'
+import Flickity from 'flickity'
 
 const celular = useCelularStore()
 
@@ -11,9 +11,8 @@ let flickity: Flickity
 onMounted(() => {
   celular.setCelular()
 
-  const divCarr = document.querySelector('.main-carousel')!
   if (!celular.celular) {
-    flickity = new Flickity(divCarr, {
+    flickity = new Flickity('.main-carousel', {
       wrapAround: true,
       cellAlign: 'left',
       freeScroll: true
@@ -31,7 +30,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class='espaco'>
+  <div class="espaco">
     <h1 id="titulo">Meus projetos</h1>
     <p id="subtitulo">Meus melhores projetos reproduzíveis até agora:</p>
     <div class="main-carousel">
@@ -81,7 +80,7 @@ onUnmounted(() => {
       aspect-ratio: 364 / 474;
       margin-left: 2em;
 
-      background-color: rgba(var(--od-body-color-rgb), .1);
+      background-color: rgba(var(--od-body-color-rgb), 0.1);
       border-radius: 2em;
       overflow: hidden;
 
@@ -92,7 +91,7 @@ onUnmounted(() => {
 
       .botao {
         width: fit-content;
-        padding: .5em 1em .3em;
+        padding: 0.5em 1em 0.3em;
         position: absolute;
         bottom: 1.5em;
         right: 1.5em;
@@ -100,7 +99,7 @@ onUnmounted(() => {
         border-radius: 999px;
         font-size: 20px;
         background-color: var(--od-primaria);
-        color: #E9E7EF;
+        color: #e9e7ef;
       }
 
       .conteudo {
