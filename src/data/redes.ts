@@ -18,11 +18,6 @@ export const DATA: Rede[] = [
     nome: "Bluesky",
     img: "/bsky.png",
     href: "https://bsky.app/profile/odanilo05.bsky.social"
-  },
-  {
-    nome: "X (antigo Twitter)",
-    img: "/x.png",
-    href: "https://twitter.com/oDanilo05"
   }
 ]
 
