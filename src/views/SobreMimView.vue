@@ -20,6 +20,15 @@ onUnmounted(() => {
     carrosel.destroy()
   }, 101)
 })
+
+function idade(): number {
+  const anoAtual = new Date().getFullYear()
+  const mesAtual = new Date().getMonth()
+  if (mesAtual < 9)
+    return anoAtual - 2006
+   else
+    return anoAtual - 2005
+}
 </script>
 
 <template>
@@ -27,7 +36,7 @@ onUnmounted(() => {
     <EuFoto />
     <div class="sobre">
       <p class="desc">
-        “Meu nome é (o)Danilo, tenho 18 anos e sou Técnico em Informática para Internet. Também sou
+        “Meu nome é (o)Danilo, tenho {{idade()}} anos e sou Técnico em Informática para Internet. Também sou
         desenvolvedor WEB e mobile full-stack.”
       </p>
       <div class="redesCards">
@@ -68,7 +77,9 @@ onUnmounted(() => {
 
   .sobre {
     width: calc((100% / 3) * 2);
-    height: 100%;
+    min-height: 200px;
+    max-height: 801px;
+    height: 80vh;
     padding-left: 5em;
     display: flex;
     flex-direction: column;
@@ -100,21 +111,21 @@ onUnmounted(() => {
 
       h1 {
         width: 100%;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.5vh;
 
-        font-size: 4em;
+        font-size: 5vh;
         border-bottom: 3px solid var(--od-body-color);
       }
     }
 
     .redesCards {
       width: 100%;
-      margin-bottom: 3em;
+      margin-bottom: 2vh;
 
       .card {
-        height: 166px;
+        height: 18vh;
         aspect-ratio: 272 / 166;
-        margin-right: 2em;
+        margin-right: 3vh;
 
         border-radius: 1em;
         overflow: hidden;
@@ -130,7 +141,7 @@ onUnmounted(() => {
       padding-left: 1em;
       margin: 1em 0;
 
-      font-size: xx-large;
+      font-size: 4vh;
       border-left: 3px solid var(--od-body-color);
       color: var(--od-body-color-sec);
     }

@@ -12,7 +12,7 @@ export const DATA: Rede[] = [
   {
     nome: "Linkedin",
     img: "/linkedin.png",
-    href: "https://www.linkedin.com/in/danilo-lima-99bb57304"
+    href: "https://www.linkedin.com/in/oculosdanilo"
   },
   {
     nome: "Bluesky",

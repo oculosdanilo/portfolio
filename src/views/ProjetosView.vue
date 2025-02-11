@@ -76,7 +76,9 @@ onUnmounted(() => {
 
   .main-carousel {
     .carousel-cell {
-      height: 474px;
+      min-height: 200px;
+      max-height: 474px;
+      height: 50vh;
       aspect-ratio: 364 / 474;
       margin-left: 2em;
 
@@ -106,14 +108,22 @@ onUnmounted(() => {
         padding: 1em 2em;
 
         h2 {
-          font-size: 3em;
+          font-size: 4vh;
         }
 
         p {
-          font-size: 1.5em;
+          font-size: 2.75vh;
           color: var(--od-body-color-sec);
         }
       }
+    }
+  }
+}
+
+@media (max-height: 675px) {
+  .conteudo {
+    p {
+      display: none;
     }
   }
 }

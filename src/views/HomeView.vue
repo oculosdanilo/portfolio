@@ -17,7 +17,7 @@ onMounted(() => {
       o++
       if (o == 5)
         o = 0
-    }, 250)
+    }, 500)
 
     $('body').on('mousemove', function(event) {
       let eye = $('.lenteOut1')

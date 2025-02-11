@@ -3,28 +3,14 @@
 import LogoNav from '@/components/LogoNav.vue'
 import { Tema, useThemeStore } from '@/stores/theme'
 import { useCelularStore } from '@/stores/celular'
-import { ref } from 'vue'
 
 const celularStore = useCelularStore()
 const temaStore = useThemeStore()
-
-let classe = ref("")
-
-function menuToggle() {
-  if (classe.value == "")
-    classe.value = "selecionado"
-  else
-    classe.value = ""
-}
-
-function logoClick() {
-  classe.value = ""
-}
 </script>
 
 <template>
   <div class="nav">
-    <RouterLink to="/" style="height: 63%" active-class="ativoLogo" @click="logoClick">
+    <RouterLink to="/" style="height: 63%" active-class="ativoLogo" @click="$emit('esconderNavMobile')">
       <LogoNav />
     </RouterLink>
 
@@ -47,7 +33,7 @@ function logoClick() {
         </Transition>
       </button>
     </div>
-    <button :class="'botaoMenu ' + classe" v-else @click="menuToggle">
+    <button class="botaoMenu" v-else @click="$emit('toggleNavMobile')">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>

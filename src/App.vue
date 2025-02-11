@@ -85,6 +85,10 @@ router.afterEach((to, from) => {
 function menuToggle() {
   $('.botaoMenu, .navMobile').toggleClass('selecionado')
 }
+
+function menuEsconder() {
+  $('.botaoMenu, .navMobile').removeClass('selecionado')
+}
 </script>
 
 <template>
@@ -105,7 +109,7 @@ function menuToggle() {
         </button>
       </div>
     </div>
-    <NavBar @entrou="peekFM" @saiu="voltarFM" @clicou="expandirFM" />
+    <NavBar @entrou="peekFM" @saiu="voltarFM" @clicou="expandirFM" @toggleNavMobile="menuToggle" @esconderNavMobile="menuEsconder" />
   </nav>
 
   <section
@@ -196,7 +200,7 @@ function menuToggle() {
       justify-content: center;
       align-items: center;
 
-      * {
+      a {
         display: inline-block;
         font-size: x-large;
         border: 2px solid var(--od-primaria);
