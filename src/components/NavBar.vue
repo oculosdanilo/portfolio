@@ -69,7 +69,7 @@ const temaStore = useThemeStore()
         font-size: x-large;
         margin-left: 1em;
         border: 2px solid var(--od-primaria);
-        padding: 0.3em 0.75em;
+        padding: 0.4em 0.75em 0.25em;
         border-radius: 999px;
         transform: scale(1);
         background-color: transparent;

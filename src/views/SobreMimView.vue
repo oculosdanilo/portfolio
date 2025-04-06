@@ -4,6 +4,7 @@ import { onMounted, onUnmounted } from 'vue'
 import { useCelularStore } from '@/stores/celular'
 import { DATA } from '@/data/redes'
 import Flickity from 'flickity'
+import GHCard from '@/components/GHCard.vue'
 
 const celularStore = useCelularStore()
 
@@ -24,10 +25,8 @@ onUnmounted(() => {
 function idade(): number {
   const anoAtual = new Date().getFullYear()
   const mesAtual = new Date().getMonth()
-  if (mesAtual < 9)
-    return anoAtual - 2006
-   else
-    return anoAtual - 2005
+  if (mesAtual < 9) return anoAtual - 2006
+  else return anoAtual - 2005
 }
 </script>
 
@@ -36,8 +35,8 @@ function idade(): number {
     <EuFoto />
     <div class="sobre">
       <p class="desc">
-        “Meu nome é (o)Danilo, tenho {{idade()}} anos e sou Técnico em Informática para Internet. Também sou
-        desenvolvedor WEB e mobile full-stack.”
+        “Meu nome é (o)Danilo, tenho {{ idade() }} anos e sou Técnico em Informática para Internet.
+        Também sou desenvolvedor WEB e mobile full-stack.”
       </p>
       <div class="redesCards">
         <a target="_blank" v-for="rede in DATA" :key="rede.nome" :href="rede.href" class="card">
@@ -52,14 +51,20 @@ function idade(): number {
             alt=""
           />
           <div class="ghRepos">
-            <object
-              type="image/svg+xml"
-              data="https://gh-card.dev/repos/oculosdanilo/gatopedia.svg?fullname=&link_target=_blank"
-            ></object>
-            <object
-              type="image/svg+xml"
-              data="https://gh-card.dev/repos/journey-etecct/flyvoo-app.svg?fullname=&link_target=_blank"
-            ></object>
+            <GHCard
+              titulo="oculosdanilo/gatopedia"
+              desc="Uma enciclopédia de gatos!"
+              info-color="#00B4AB"
+              info-desc="Dart"
+              stars="4"
+            ></GHCard>
+            <GHCard
+              titulo="journey-etecct/flyvoo-app"
+              desc="Aplicativo para decisão precisa da sua vida profissional"
+              info-color="#00B4AB"
+              info-desc="Dart"
+              stars="3"
+            ></GHCard>
           </div>
         </div>
       </div>
@@ -91,7 +96,7 @@ function idade(): number {
       .ghCards {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
 
         img {
           width: 440px;
@@ -102,10 +107,6 @@ function idade(): number {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-
-          object {
-            border-radius: 1em;
-          }
         }
       }
 
