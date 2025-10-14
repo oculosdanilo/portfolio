@@ -110,4 +110,11 @@ defineProps(['titulo', 'desc', 'infoColor', 'infoDesc', 'stars'])
     }
   }
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(100vw - 2em);
+    margin-bottom: 1em;
+  }
+}
 </style>

@@ -172,9 +172,8 @@ function idade(): number {
             margin-bottom: 1em;
           }
 
-          .ghRepos * {
+          .ghRepos {
             width: calc(100vw - 2em);
-            height: 110px;
             margin-bottom: 1em;
           }
         }

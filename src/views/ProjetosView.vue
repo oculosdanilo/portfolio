@@ -35,12 +35,16 @@ onUnmounted(() => {
     <p id="subtitulo">Meus melhores projetos reproduzíveis até agora:</p>
     <div class="main-carousel">
       <div class="carousel-cell" v-for="projeto in DATA" :key="projeto.nome">
-        <img :src="projeto.img" :alt="projeto.desc" class="imagem" />
+        <img :src="'/cards' + projeto.img" :alt="projeto.desc" class="imagem" />
         <div class="conteudo">
           <h2>{{ projeto.nome }}</h2>
           <p>{{ projeto.desc }}</p>
         </div>
-        <a :href="projeto.href" target="_blank" class="botao">ACESSAR</a>
+
+        <a :href="projeto.href" target="_blank" class="botao">
+          <span class="material-symbols-outlined">open_in_new</span>
+          <span class="text">ACESSAR</span>
+        </a>
       </div>
     </div>
   </div>
@@ -64,20 +68,21 @@ onUnmounted(() => {
 
   padding: 0 calc(((110px * 0.55) + 4em));
 
-  h1 {
+  #titulo {
     font-weight: 900;
     font-size: 6em;
   }
 
-  p {
+  #subtitulo {
     font-size: 2em;
     margin-bottom: 1em;
+    color: var(--od-body-color-sec);
   }
 
   .main-carousel {
     .carousel-cell {
       min-height: 200px;
-      max-height: 474px;
+      max-height: 600px;
       height: 50vh;
       aspect-ratio: 364 / 474;
       margin-left: 2em;
@@ -93,15 +98,30 @@ onUnmounted(() => {
 
       .botao {
         width: fit-content;
-        padding: 0.5em 1em 0.3em;
+        padding: 0.75em 1em;
         position: absolute;
         bottom: 1.5em;
         right: 1.5em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
 
-        border-radius: 999px;
+        border-radius: 9999px;
         font-size: 20px;
         background-color: var(--od-primaria);
         color: #e9e7ef;
+
+        transition: filter ease 150ms;
+
+        &:hover {
+          filter: brightness(110%);
+        }
+
+        .text {
+          margin-left: 0.5em;
+          height: 0.75em;
+        }
       }
 
       .conteudo {
